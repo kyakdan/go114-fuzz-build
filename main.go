@@ -24,6 +24,7 @@ var (
 	flagV        = flag.Bool("v", false, "print the names of packages as they are compiled")
 	flagWork     = flag.Bool("work", false, "print the name of the temporary work directory and do not remove it when exiting")
 	flagX        = flag.Bool("x", false, "print the commands")
+	flagOverlay  = flag.String("overlay", "", "JSON config file that provides an overlay for build operations")
 )
 
 var include, ignore []string
@@ -132,6 +133,9 @@ func main() {
 	}
 
 	args := []string{"build", "-o", out}
+	if *flagOverlay != "" {
+		buildFlags = append(buildFlags, "-overlay", *flagOverlay)
+	}
 	args = append(args, buildFlags...)
 	args = append(args, mainFile.Name())
 	cmd := exec.Command("go", args...)
