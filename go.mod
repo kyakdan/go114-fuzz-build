@@ -1,4 +1,4 @@
-module github.com/mdempsky/go114-fuzz-build
+module github.com/kyakdan/go114-fuzz-build
 
 go 1.14
 

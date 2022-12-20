@@ -11,7 +11,7 @@ transformation.
 1. Install go114-fuzz-build:
 
 ``` sh
-$ go get -u github.com/mdempsky/go114-fuzz-build
+$ go get -u github.com/kyakdan/go114-fuzz-build
 ```
 
 2. Build Kubernetes fuzz target with go114-fuzz-build and link against libFuzzer:
